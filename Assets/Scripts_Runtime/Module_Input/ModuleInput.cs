@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class ModuleInput : MonoBehaviour {
+public class ModuleInput {
 
 
 

@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: de334b732a16c21409870f3ec654a8d3
+  m_SerializeEntries:
+  - m_GUID: 0bb548a5363a0c348a26f4205a12b248
+    m_Address: Panel_Arrow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Panel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97f88dfaff00a0e4fb090b3db5d3133e
+    m_Address: ArrowTM 4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ArrowTM
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f378fec21953cdd45b963434d6521ea6
+    m_Address: ArrowTM 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ArrowTM
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e8709f4419b68d24087c1c2b8b8e521f
+    m_Address: ArrowTM 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ArrowTM
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 980e7fe78f2ed2c438a73308ca1fd4fe
+    m_Address: ArrowTM 3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ArrowTM
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 46545678b5d9b6944a7d981bf0b7031b, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: f5819d9889595374389d53fedf06dc80, type: 2}
+    - {fileID: 11400000, guid: edb2be127710355438fd011cb9b0221c, type: 2}

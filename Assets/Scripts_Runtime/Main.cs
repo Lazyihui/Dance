@@ -6,7 +6,7 @@ public class Main : MonoBehaviour {
 
     public MainContext ctx;
 
-    // bool isTearDown = false;
+    bool isTearDown = false;
     void Awake() {
 
         ctx = new MainContext();
@@ -14,6 +14,11 @@ public class Main : MonoBehaviour {
         Canvas canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
         ctx.Inject(canvas);
 
+        // ==== Phase: Load ====
+        ModuleAssets.Load(ctx.assetsContext);
+        TemplateInfro.Load(ctx.templateContext);
+
+        Debug.Log("Main Awake");
 
     }
 
@@ -57,5 +62,21 @@ public class Main : MonoBehaviour {
 
     }
 
+    void OnDestory() {
+        TearDown();
+    }
 
+    void OnApplicationQuit() {
+        TearDown();
+    }
+
+    void TearDown() {
+        if (isTearDown) {
+            return;
+        }
+        isTearDown = true;
+        // === Unload===
+        ModuleAssets.Unload(ctx.assetsContext);
+        TemplateInfro.Unload(ctx.templateContext);
+    }
 }
