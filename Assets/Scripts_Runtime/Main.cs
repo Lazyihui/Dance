@@ -21,6 +21,7 @@ public class Main : MonoBehaviour {
         Debug.Log("Main Awake");
 
         UIApp.Panel_Arrow_Open(ctx.uiContext);
+        UIApp.Panel_ArrowElementAdd(ctx.uiContext, 4);
 
     }
 

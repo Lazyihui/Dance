@@ -4,13 +4,14 @@ using UnityEngine.UI;
 
 
 public class Panel_Arrow : MonoBehaviour {
-    [SerializeField] Panel_ArrowElement image;
+    [SerializeField] Panel_ArrowElement ele;
 
     [SerializeField] Transform Group;
 
     public Color finishColor;
 
-    public void Ctor(){}
+    public void Ctor(){
+    }
     
 
     public void Show() {
@@ -36,7 +37,7 @@ public class Panel_Arrow : MonoBehaviour {
 
         element.Ctor();
         element.SetArrow(tm.sprite);
-        element.SetFinishColor(finishColor);
+        // element.SetFinishColor(finishColor);
 
         
         return element;

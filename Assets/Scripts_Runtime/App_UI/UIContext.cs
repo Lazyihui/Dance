@@ -17,10 +17,13 @@ public class UIContext {
     // panel
     public Panel_Arrow panelArrow;
 
+    public Queue<int> arrowElementQueue;
 
+    public int currentarrowElement;
 
     public UIContext() {
-
+        arrowElementQueue = new Queue<int>();
+        currentarrowElement = 0;
     }
 
     public void Inject(Canvas canvas,ModuleInput moduleInput, TemplateContext templateContext, AssetsContext assetsContext) {
