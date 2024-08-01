@@ -20,6 +20,8 @@ public class Main : MonoBehaviour {
 
         Debug.Log("Main Awake");
 
+        UIApp.Panel_Arrow_Open(ctx.uiContext);
+
     }
 
     // Update is called once per frame

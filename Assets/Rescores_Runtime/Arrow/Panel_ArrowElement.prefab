@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3862759257277916574}
   - component: {fileID: 3535988475393365705}
   - component: {fileID: 4791275354996457544}
+  - component: {fileID: -2433373962165447186}
   m_Layer: 5
   m_Name: Panel_ArrowElement
   m_TagString: Untagged
@@ -75,3 +76,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-2433373962165447186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4153947039761997333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7338102beb40ef42b6e9fe6e8595a70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 0}

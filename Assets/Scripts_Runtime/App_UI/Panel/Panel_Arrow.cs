@@ -4,16 +4,14 @@ using UnityEngine.UI;
 
 
 public class Panel_Arrow : MonoBehaviour {
-    [SerializeField] Image image;
+    [SerializeField] Panel_ArrowElement image;
+
+    [SerializeField] Transform Group;
 
     public Color finishColor;
-    public void SetArrow(Sprite sprite) {
-        image.sprite = sprite;
-    }
 
-    public void SetFinishColor(Color color) {
-        image.color = color;
-    }
+    public void Ctor(){}
+    
 
     public void Show() {
         gameObject.SetActive(true);
@@ -23,6 +21,25 @@ public class Panel_Arrow : MonoBehaviour {
         gameObject.SetActive(false);
     }
 
-    public void AddElement(UIContext ctx,int typeID) { }
+    public Panel_ArrowElement AddElement(UIContext ctx, int typeID) {
+        bool has = ctx.templateContext.arrows.TryGetValue(typeID, out ArrowTM tm);
+
+        if (!has) {
+            Debug.LogError("Arrow not found");
+            return null;
+        }
+
+        ctx.assetsContext.panels.TryGetValue("Panel_ArrowElement", out GameObject prefab);
+
+        GameObject go = Instantiate(prefab, Group);
+        Panel_ArrowElement element = go.GetComponent<Panel_ArrowElement>();
+
+        element.Ctor();
+        element.SetArrow(tm.sprite);
+        element.SetFinishColor(finishColor);
+
+        
+        return element;
+    }
 
 }

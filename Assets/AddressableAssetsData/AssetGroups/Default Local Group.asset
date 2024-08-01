@@ -47,6 +47,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - ArrowTM
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be3c61425f4982d45bc25263a4033699
+    m_Address: Panel_ArrowElement
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Panel
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 46545678b5d9b6944a7d981bf0b7031b, type: 2}
   m_SchemaSet:

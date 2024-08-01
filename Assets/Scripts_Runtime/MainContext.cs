@@ -24,7 +24,7 @@ public class MainContext {
     }
 
     public void Inject(Canvas canvas) {
-        uiContext.Inject(moduleInput);
+        uiContext.Inject(canvas,moduleInput, templateContext, assetsContext);
         this.canvas = canvas;
     }
 

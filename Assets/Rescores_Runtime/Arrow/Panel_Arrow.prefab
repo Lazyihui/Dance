@@ -120,5 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75dc99389ef8db945a1013a6d9dcb052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: -2433373962165447186, guid: be3c61425f4982d45bc25263a4033699, type: 3}
+  Group: {fileID: 0}
   finishColor: {r: 0.21243297, g: 0.90943396, b: 0.20419356, a: 0}
