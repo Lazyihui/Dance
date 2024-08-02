@@ -10,27 +10,33 @@ public class ModuleInput {
     public int index;
 
     public ModuleInput() {
-        PressedKey = 0;
+        PressedKey = -1;
         index = 0;
     }
 
-    public void ProcessInput() {
+    public void ProcessInput(UIContext ctx) {
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
             PressedKey = 1;
-            index++;
+            Debug.Log("PressedKey: " + PressedKey);
+            UIApp.Panel_ArrowElementUpdate(ctx);
+
         } else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) {
             PressedKey = 2;
-            index++;
+            Debug.Log("PressedKey: " + PressedKey);
+            UIApp.Panel_ArrowElementUpdate(ctx);
+
         } else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) {
             PressedKey = 3;
-            index++;
+            Debug.Log("PressedKey: " + PressedKey);
+            UIApp.Panel_ArrowElementUpdate(ctx);
+
         } else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
             PressedKey = 4;
-            index++;
-        } else {
-            PressedKey = 0;
-            index++;
 
+            UIApp.Panel_ArrowElementUpdate(ctx);
+            Debug.Log("PressedKey: " + PressedKey);
+        } else if (Input.GetKeyDown(KeyCode.Space)) {
+            PressedKey = 15;
         }
 
     }

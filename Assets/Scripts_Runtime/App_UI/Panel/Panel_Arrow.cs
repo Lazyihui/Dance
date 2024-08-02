@@ -4,15 +4,15 @@ using UnityEngine.UI;
 
 
 public class Panel_Arrow : MonoBehaviour {
-    [SerializeField] Panel_ArrowElement ele;
+    [SerializeField] public Panel_ArrowElement ele;
 
     [SerializeField] Transform Group;
 
     public Color finishColor;
 
-    public void Ctor(){
+    public void Ctor() {
     }
-    
+
 
     public void Show() {
         gameObject.SetActive(true);
@@ -38,8 +38,9 @@ public class Panel_Arrow : MonoBehaviour {
         element.Ctor();
         element.SetArrow(tm.sprite);
         // element.SetFinishColor(finishColor);
+        element.id = ctx.arrowRecordIndex++;
+        ctx.panelEleRespository.Add(element);
 
-        
         return element;
     }
 

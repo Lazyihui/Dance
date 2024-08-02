@@ -29,15 +29,12 @@ public static class UIApp {
 
             int randomDir = UnityEngine.Random.Range(1, 5);
             panel.AddElement(ctx, randomDir);
-            ctx.arrowElementArray[ctx.arrowIndex] = randomDir;
-            ctx.arrowIndex++;
+            ctx.arrowElementArray[ctx.arrowIndex++] = randomDir;
 
         }
 
-
-        for (int i = 0; i < count; i++) {
-            int a = ctx.arrowElementArray[i];
-            Debug.Log(a);
+        for (int i = 0; i < ctx.arrowElementArray.Length; i++) {
+            Debug.Log("  arroe " + ctx.arrowElementArray[i]);
         }
 
     }
@@ -45,7 +42,20 @@ public static class UIApp {
     public static void Panel_ArrowElementUpdate(UIContext ctx) {
 
         Panel_Arrow panel = ctx.panelArrow;
-        
+
+        int index = ctx.moduleInput.index;
+        Debug.Log("index: " + index);
+        Debug.Log("input " + ctx.moduleInput.PressedKey + " arrow" + ctx.arrowElementArray[index]);
+        if (ctx.moduleInput.PressedKey == ctx.arrowElementArray[index]) {
+            Debug.Log("相同");
+
+            ctx.panelEleRespository.TryGet(index,out Panel_ArrowElement ele);
+            ele.SetFinishColor(Color.green);
+
+            ctx.moduleInput.index++;
+        } else {
+
+        }
 
     }
 }

@@ -17,6 +17,9 @@ public class UIContext {
     // panel
     public Panel_Arrow panelArrow;
 
+    public PanelEleRespository panelEleRespository;
+
+    public int arrowRecordIndex;
 
 
     public int[] arrowElementArray;
@@ -25,6 +28,9 @@ public class UIContext {
 
     public UIContext() {
         arrowElementArray = new int[14];
+        arrowIndex = 0;
+
+        panelEleRespository = new PanelEleRespository();
         arrowIndex = 0;
     }
 

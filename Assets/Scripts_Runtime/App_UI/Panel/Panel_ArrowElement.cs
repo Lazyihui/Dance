@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Panel_ArrowElement : MonoBehaviour {
 
+    public int id;
     [SerializeField] Image image;
 
     public void Ctor() {

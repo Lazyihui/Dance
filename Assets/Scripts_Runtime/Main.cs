@@ -53,7 +53,7 @@ public class Main : MonoBehaviour {
     }
 
     void PreFixUpdate(MainContext ctx) {
-        ctx.moduleInput.ProcessInput();
+        ctx.moduleInput.ProcessInput(ctx.uiContext);
 
     }
 
@@ -62,7 +62,6 @@ public class Main : MonoBehaviour {
     }
 
     void LateFixUpdate(MainContext ctx, float dt) {
-
     }
 
     void OnDestory() {
