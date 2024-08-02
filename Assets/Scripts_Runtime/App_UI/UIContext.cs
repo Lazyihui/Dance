@@ -17,16 +17,18 @@ public class UIContext {
     // panel
     public Panel_Arrow panelArrow;
 
-    public Queue<int> arrowElementQueue;
 
-    public int currentarrowElement;
+
+    public int[] arrowElementArray;
+
+    public int arrowIndex;
 
     public UIContext() {
-        arrowElementQueue = new Queue<int>();
-        currentarrowElement = 0;
+        arrowElementArray = new int[14];
+        arrowIndex = 0;
     }
 
-    public void Inject(Canvas canvas,ModuleInput moduleInput, TemplateContext templateContext, AssetsContext assetsContext) {
+    public void Inject(Canvas canvas, ModuleInput moduleInput, TemplateContext templateContext, AssetsContext assetsContext) {
         this.moduleInput = moduleInput;
         this.templateContext = templateContext;
         this.assetsContext = assetsContext;

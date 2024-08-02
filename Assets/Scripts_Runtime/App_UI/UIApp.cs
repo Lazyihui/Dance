@@ -29,14 +29,23 @@ public static class UIApp {
 
             int randomDir = UnityEngine.Random.Range(1, 5);
             panel.AddElement(ctx, randomDir);
-            ctx.arrowElementQueue.Enqueue(randomDir);
+            ctx.arrowElementArray[ctx.arrowIndex] = randomDir;
+            ctx.arrowIndex++;
 
         }
 
 
         for (int i = 0; i < count; i++) {
-            int randomDir = ctx.arrowElementQueue.Dequeue();
-            Debug.Log("randomDir: " + randomDir);
+            int a = ctx.arrowElementArray[i];
+            Debug.Log(a);
         }
+
+    }
+
+    public static void Panel_ArrowElementUpdate(UIContext ctx) {
+
+        Panel_Arrow panel = ctx.panelArrow;
+        
+
     }
 }
