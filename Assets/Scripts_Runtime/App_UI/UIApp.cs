@@ -46,10 +46,12 @@ public static class UIApp {
             Panel_ArrowElement ele = elements[i];
 
             ctx.panelEleRespository.Remove(ele);
+            ctx.arrowRecordIndex=0;
             GameObject.Destroy(ele.gameObject);
 
         }
-
+        ctx.arrowElementArray.Clear();
+        ctx.moduleInput.index = 0;
     }
 
     public static void Panel_ArrowElementAdd(UIContext ctx, int count) {
@@ -62,6 +64,10 @@ public static class UIApp {
             panel.AddElement(ctx, randomDir);
             ctx.arrowElementArray.Add(randomDir);
 
+        }
+
+        for(int i = 0; i < ctx.arrowElementArray.Count; i++) {
+            Debug.Log(ctx.arrowElementArray[i]);
         }
 
 
@@ -77,6 +83,14 @@ public static class UIApp {
             Debug.Log("相同");
 
             ctx.panelEleRespository.TryGet(index, out Panel_ArrowElement ele);
+
+            Debug.Log(index);
+
+            if (ele == null) {
+                Debug.LogError("ele is null");
+                return;
+            }
+
             ele.SetFinishColor(Color.green);
 
             ctx.moduleInput.index++;
@@ -87,6 +101,8 @@ public static class UIApp {
             UIApp.Panel_Arrow_Open(ctx);
             UIApp.Panel_ArrowElementAdd(ctx, count);
 
+            for (int i = 0; i < ctx.arrowElementArray.Count; i++) {
+            }
         }
 
     }
