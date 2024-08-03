@@ -23,16 +23,11 @@ public class UIContext {
     public int arrowRecordIndex;
 
 
-    public int[] arrowElementArray;
-
-    public int arrowIndex;
+    public List<int> arrowElementArray;
 
     public UIContext() {
-        arrowElementArray = new int[14];
-        arrowIndex = 0;
-
+        arrowElementArray = new List<int>();
         panelEleRespository = new PanelEleRespository();
-        arrowIndex = 0;
     }
 
     public void Inject(Canvas canvas, ModuleInput moduleInput, TemplateContext templateContext, AssetsContext assetsContext, GameLevelStatus gameLevelStatus) {

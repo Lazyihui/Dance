@@ -22,7 +22,7 @@ public class Main : MonoBehaviour {
         Debug.Log("Main Awake");
 
         UIApp.Panel_Arrow_Open(ctx.uiContext);
-        UIApp.Panel_ArrowElementAdd(ctx.uiContext, 4);
+        UIApp.Panel_ArrowElementAdd(ctx.uiContext, ctx.gameEntity.arrowCount);
 
     }
 
@@ -54,7 +54,7 @@ public class Main : MonoBehaviour {
     }
 
     void PreFixUpdate(MainContext ctx) {
-        ctx.moduleInput.ProcessInput(ctx.uiContext);
+        ctx.moduleInput.ProcessInput(ctx);
 
     }
 

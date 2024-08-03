@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public static class UIApp {
@@ -45,7 +47,7 @@ public static class UIApp {
 
             ctx.panelEleRespository.Remove(ele);
             GameObject.Destroy(ele.gameObject);
-            
+
         }
 
     }
@@ -58,20 +60,19 @@ public static class UIApp {
 
             int randomDir = UnityEngine.Random.Range(1, 5);
             panel.AddElement(ctx, randomDir);
-            ctx.arrowElementArray[ctx.arrowIndex++] = randomDir;
+            ctx.arrowElementArray.Add(randomDir);
 
         }
 
 
     }
 
-    public static void Panel_ArrowElementUpdate(UIContext ctx) {
+    public static void Panel_ArrowElementUpdate(UIContext ctx, int count) {
 
         Panel_Arrow panel = ctx.panelArrow;
 
         int index = ctx.moduleInput.index;
-        Debug.Log("index: " + index);
-        Debug.Log("input " + ctx.moduleInput.PressedKey + " arrow" + ctx.arrowElementArray[index]);
+
         if (ctx.moduleInput.PressedKey == ctx.arrowElementArray[index]) {
             Debug.Log("相同");
 
@@ -81,8 +82,10 @@ public static class UIApp {
             ctx.moduleInput.index++;
         } else {
 
-            // Panel_ArrowElementClear(ctx);
-            // ctx.gameLevelStatus = GameLevelStatus.Level_1_2;
+            UIApp.Panel_Arrow_Close(ctx);
+
+            UIApp.Panel_Arrow_Open(ctx);
+            UIApp.Panel_ArrowElementAdd(ctx, count);
 
         }
 
