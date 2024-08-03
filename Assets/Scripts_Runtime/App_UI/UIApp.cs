@@ -132,4 +132,12 @@ public static class UIApp {
         }
         panel.SetLevelText(level);
     }
+
+    public static void Panel_Silde_Move_StartPos(MainContext ctx, float dt) {
+        Panel_Silde panel = ctx.uiContext.panelSilde;
+        if (panel == null) {
+            return;
+        }
+        panel.Move_StartPos(dt, ref ctx.gameEntity.t, ctx.gameEntity.SumTime);
+    }
 }

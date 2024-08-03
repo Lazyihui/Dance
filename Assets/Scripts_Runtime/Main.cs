@@ -62,7 +62,7 @@ public class Main : MonoBehaviour {
 
     void LogicFix(MainContext ctx, float dt) {
 
-
+        UIApp.Panel_Silde_Move_StartPos(ctx, dt);
     }
 
     void LateFixUpdate(MainContext ctx, float dt) {

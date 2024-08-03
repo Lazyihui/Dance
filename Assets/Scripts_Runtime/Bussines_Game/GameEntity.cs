@@ -7,8 +7,14 @@ public class GameEntity {
 
     public int arrowCount;
 
+    public float t;
+
+    public float SumTime;
+
     public GameEntity() {
         restFixTime = 0;
-        arrowCount =  5;
+        arrowCount = 5;
+        t = 0;
+        SumTime = 2;
     }
 }
