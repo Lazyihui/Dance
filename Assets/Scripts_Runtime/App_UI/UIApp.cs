@@ -2,10 +2,10 @@ using System;
 using UnityEngine;
 
 public static class UIApp {
-    public static void Panel_Arrow_Open(UIContext ctx, ref bool isfinish) {
+    public static void Panel_Arrow_Open(UIContext ctx) {
 
         Panel_Arrow panel = ctx.panelArrow;
-        isfinish = true;
+
         if (panel == null) {
             bool has = ctx.assetsContext.panels.TryGetValue("Panel_Arrow", out GameObject prefab);
             if (!has) {
@@ -29,31 +29,42 @@ public static class UIApp {
             return;
         }
         panel.Close();
-    }
-    public static void Panel_ArrowElementAdd(UIContext ctx, int count, ref bool isfinish) {
-
-        if (isfinish) {
-            Panel_Arrow panel = ctx.panelArrow;
-
-            for (int i = 0; i < count; i++) {
-
-                int randomDir = UnityEngine.Random.Range(1, 5);
-                panel.AddElement(ctx, randomDir);
-                ctx.arrowElementArray[ctx.arrowIndex++] = randomDir;
-
-            }
-
-            isfinish = false;
-
-        }
-
+        Panel_ArrowElementClear(ctx);
     }
 
     public static void Panel_ArrowElementClear(UIContext ctx) {
 
         Panel_Arrow panel = ctx.panelArrow;
-        panel.CloseElement(ctx);
+        if (panel == null) {
+            return;
+        }
+
+        int len = ctx.panelEleRespository.TakeAll(out Panel_ArrowElement[] elements);
+        for (int i = 0; i < len; i++) {
+            Panel_ArrowElement ele = elements[i];
+
+            ctx.panelEleRespository.Remove(ele);
+            GameObject.Destroy(ele.gameObject);
+            
+        }
+
     }
+
+    public static void Panel_ArrowElementAdd(UIContext ctx, int count) {
+
+        Panel_Arrow panel = ctx.panelArrow;
+
+        for (int i = 0; i < count; i++) {
+
+            int randomDir = UnityEngine.Random.Range(1, 5);
+            panel.AddElement(ctx, randomDir);
+            ctx.arrowElementArray[ctx.arrowIndex++] = randomDir;
+
+        }
+
+
+    }
+
     public static void Panel_ArrowElementUpdate(UIContext ctx) {
 
         Panel_Arrow panel = ctx.panelArrow;

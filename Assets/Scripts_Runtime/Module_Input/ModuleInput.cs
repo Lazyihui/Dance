@@ -32,7 +32,10 @@ public class ModuleInput {
 
             UIApp.Panel_ArrowElementUpdate(ctx);
         } else if (Input.GetKeyDown(KeyCode.Space)) {
-            PressedKey = 15;
+            UIApp.Panel_Arrow_Close(ctx);
+
+            UIApp.Panel_Arrow_Open(ctx);
+            UIApp.Panel_ArrowElementAdd(ctx,5);
         }
 
     }

@@ -22,8 +22,9 @@ public class Panel_ArrowElement : MonoBehaviour {
         image.color = color;
     }
 
-    public void Close() {
-        GameObject.Destroy(gameObject);
+    public void TearDown() {
+        Destroy(gameObject);
     }
+
 }
 

@@ -8,7 +8,6 @@ public class Main : MonoBehaviour {
 
     bool isTearDown = false;
 
-    bool isInterNextLevel = true;
     void Awake() {
 
         ctx = new MainContext();
@@ -22,8 +21,8 @@ public class Main : MonoBehaviour {
 
         Debug.Log("Main Awake");
 
-        UIApp.Panel_Arrow_Open(ctx.uiContext,ref isInterNextLevel);
-        UIApp.Panel_ArrowElementAdd(ctx.uiContext, 4, ref isInterNextLevel);
+        UIApp.Panel_Arrow_Open(ctx.uiContext);
+        UIApp.Panel_ArrowElementAdd(ctx.uiContext, 4);
 
     }
 
@@ -61,12 +60,6 @@ public class Main : MonoBehaviour {
 
     void LogicFix(MainContext ctx, float dt) {
 
-        // if (ctx.uiContext.gameLevelStatus == GameLevelStatus.Level_1_1) {
-        //     Debug.Log("Level_1_1");
-        // } else if (ctx.uiContext.gameLevelStatus == GameLevelStatus.Level_1_2) {
-        //     Debug.Log("Level_1_2");
-        //         UIApp.Panel_ArrowElementAdd(ctx.uiContext, 5, ref isInterNextLevel);
-        // }
 
     }
 
