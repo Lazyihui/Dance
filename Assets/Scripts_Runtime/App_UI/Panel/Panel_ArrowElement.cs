@@ -21,5 +21,9 @@ public class Panel_ArrowElement : MonoBehaviour {
     public void SetFinishColor(Color color) {
         image.color = color;
     }
+
+    public void Close() {
+        GameObject.Destroy(gameObject);
+    }
 }
 

@@ -13,6 +13,9 @@ public class MainContext {
     public TemplateContext templateContext;
     // inject
     public Canvas canvas;
+
+
+    public GameLevelStatus gameLevelStatus;
     public MainContext() {
         gameEntity = new GameEntity();
 
@@ -21,10 +24,13 @@ public class MainContext {
 
         assetsContext = new AssetsContext();
         templateContext = new TemplateContext();
+
+
+        gameLevelStatus = GameLevelStatus.None;
     }
 
     public void Inject(Canvas canvas) {
-        uiContext.Inject(canvas,moduleInput, templateContext, assetsContext);
+        uiContext.Inject(canvas, moduleInput, templateContext, assetsContext, gameLevelStatus);
         this.canvas = canvas;
     }
 
