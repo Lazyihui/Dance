@@ -18,6 +18,8 @@ public class UIContext {
     // panel
     public Panel_Arrow panelArrow;
 
+    public Panel_Silde panelSilde;
+
     public PanelEleRespository panelEleRespository;
 
     public int arrowRecordIndex;

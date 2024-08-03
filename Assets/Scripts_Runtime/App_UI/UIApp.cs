@@ -46,7 +46,7 @@ public static class UIApp {
             Panel_ArrowElement ele = elements[i];
 
             ctx.panelEleRespository.Remove(ele);
-            ctx.arrowRecordIndex=0;
+            ctx.arrowRecordIndex = 0;
             GameObject.Destroy(ele.gameObject);
 
         }
@@ -66,7 +66,7 @@ public static class UIApp {
 
         }
 
-        for(int i = 0; i < ctx.arrowElementArray.Count; i++) {
+        for (int i = 0; i < ctx.arrowElementArray.Count; i++) {
             Debug.Log(ctx.arrowElementArray[i]);
         }
 
@@ -105,5 +105,23 @@ public static class UIApp {
             }
         }
 
+    }
+
+
+    public static void Panel_Silde_Open(UIContext ctx) {
+        Panel_Silde panel = ctx.panelSilde;
+
+        if (panel == null) {
+            bool has = ctx.assetsContext.panels.TryGetValue("Panel_Slide", out GameObject prefab);
+            if (!has) {
+                Debug.LogError("Panel_Silde not found");
+                return;
+            }
+            panel = GameObject.Instantiate(prefab, ctx.canvas.transform).GetComponent<Panel_Silde>();
+            panel.Ctor();
+            ctx.panelSilde = panel;
+        }
+
+        panel.Show();
     }
 }
