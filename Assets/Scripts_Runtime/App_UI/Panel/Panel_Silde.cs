@@ -8,14 +8,16 @@ public class Panel_Silde : MonoBehaviour {
 
     [SerializeField] Text LevelText;
 
-    [SerializeField] Transform startPos;
+    [SerializeField] Image startPos;
 
-    [SerializeField] Transform endPos;
+    [SerializeField] Image endPos;
 
 
     public void Ctor() { }
 
-
+    public void SetLevelText(int text) {
+        LevelText.text = text.ToString();
+    }
 
 
     public void Show() {

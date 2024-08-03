@@ -24,7 +24,7 @@ public class Main : MonoBehaviour {
         UIApp.Panel_Arrow_Open(ctx.uiContext);
         UIApp.Panel_ArrowElementAdd(ctx.uiContext, ctx.gameEntity.arrowCount);
 
-        UIApp.Panel_Silde_Open(ctx.uiContext);
+        UIApp.Panel_Silde_Open(ctx.uiContext, ctx.gameEntity.arrowCount);
 
     }
 

@@ -37,6 +37,7 @@ public class ModuleInput {
 
             UIApp.Panel_Arrow_Open(ctx.uiContext);
             UIApp.Panel_ArrowElementAdd(ctx.uiContext, ctx.gameEntity.arrowCount);
+            UIApp.Panel_ArrowElementUpdate(ctx.uiContext, ctx.gameEntity.arrowCount);
         }
 
     }

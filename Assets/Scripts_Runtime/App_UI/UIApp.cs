@@ -101,14 +101,13 @@ public static class UIApp {
             UIApp.Panel_Arrow_Open(ctx);
             UIApp.Panel_ArrowElementAdd(ctx, count);
 
-            for (int i = 0; i < ctx.arrowElementArray.Count; i++) {
-            }
+            UIApp.Panel_Silde_SetText_Update(ctx, count);
         }
 
     }
 
 
-    public static void Panel_Silde_Open(UIContext ctx) {
+    public static void Panel_Silde_Open(UIContext ctx, int level) {
         Panel_Silde panel = ctx.panelSilde;
 
         if (panel == null) {
@@ -119,9 +118,18 @@ public static class UIApp {
             }
             panel = GameObject.Instantiate(prefab, ctx.canvas.transform).GetComponent<Panel_Silde>();
             panel.Ctor();
+            panel.SetLevelText(level);
             ctx.panelSilde = panel;
         }
 
         panel.Show();
+    }
+
+    public static void Panel_Silde_SetText_Update(UIContext ctx, int level) {
+        Panel_Silde panel = ctx.panelSilde;
+        if (panel == null) {
+            return;
+        }
+        panel.SetLevelText(level);
     }
 }
