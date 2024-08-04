@@ -15,12 +15,11 @@ public class Panel_Silde : MonoBehaviour {
 
     public float negativewidth;
 
-    public float positivewidth;
 
 
     public void Ctor() {
-        negativewidth = Mathf.Abs(startPos.transform.localPosition.x);
-        positivewidth = Mathf.Abs(endPos.transform.localPosition.x);
+        // negativewidth = Mathf.Abs(startPos.transform.localPosition.x - endPos.transform.localPosition.x);
+        negativewidth = Mathf.Abs(startPos.rectTransform.anchoredPosition.x - endPos.rectTransform.anchoredPosition.x);
     }
 
     public void SetLevelText(int text) {
@@ -35,24 +34,24 @@ public class Panel_Silde : MonoBehaviour {
 
         // Debug.Log("startPos.rectTransform.anchoredPosition.x: " + startPos.rectTransform.anchoredPosition.x);
 
-        Vector2 pos = startPos.transform.localPosition;
-        Debug.Log("pos" + pos);
-        t += dt;
-        if ((t / SumTime) >= 1) {
-            {
-                return;
-            }
-        }
-        if (pos.x < 0) {
-            pos.x = (t / SumTime) * negativewidth;
+        // Vector2 pos = startPos.transform.localPosition;
+        Vector2 pos = startPos.rectTransform.anchoredPosition;
 
-        } else {
-            pos.x = (t / SumTime) * positivewidth;
+        if(pos.x >= endPos.rectTransform.anchoredPosition.x) {
+            pos = endPos.rectTransform.anchoredPosition;
+            Debug.Log("pos.x >= endPos.rectTransform.anchoredPosition.x"+ pos.x + " " + endPos.rectTransform.anchoredPosition.x);
+            return;
         }
+
+        t += dt;
+        
+        pos.x = (t / SumTime) * negativewidth;
 
         Debug.Log("t" + t + "t / SumTime: " + t / SumTime);
 
-        startPos.transform.localPosition = pos;
+
+        // startPos.transform.localPosition = pos;
+        startPos.rectTransform.anchoredPosition = pos;
 
 
     }
