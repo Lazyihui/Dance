@@ -15,42 +15,58 @@ public class Panel_Silde : MonoBehaviour {
 
     public float negativewidth;
 
+    public bool isMove_StartPos;
+
 
 
     public void Ctor() {
         // negativewidth = Mathf.Abs(startPos.transform.localPosition.x - endPos.transform.localPosition.x);
+
         negativewidth = Mathf.Abs(startPos.rectTransform.anchoredPosition.x - endPos.rectTransform.anchoredPosition.x);
+        isMove_StartPos = false;
+
     }
 
     public void SetLevelText(int text) {
         LevelText.text = text.ToString();
     }
 
-    public void Move_StartPos(float dt, ref float t, float SumTime) {
-        // startPos.rectTransform.anchoredPosition = new Vector2(startPos.rectTransform.anchoredPosition.x + dt, startPos.rectTransform.anchoredPosition.y);
-        // Vector2 pos = startPos.rectTransform.anchoredPosition;
-        // pos.x += dt*10;
-        // startPos.rectTransform.anchoredPosition = pos;
+    public void Move_StartPos(float dt, ref float t, float SumTime, ref int level) {
 
-        // Debug.Log("startPos.rectTransform.anchoredPosition.x: " + startPos.rectTransform.anchoredPosition.x);
+        //    用时间的算法
 
-        // Vector2 pos = startPos.transform.localPosition;
-        Vector2 pos = startPos.rectTransform.anchoredPosition;
-
-        if(pos.x >= endPos.rectTransform.anchoredPosition.x) {
-            pos = endPos.rectTransform.anchoredPosition;
-            Debug.Log("pos.x >= endPos.rectTransform.anchoredPosition.x"+ pos.x + " " + endPos.rectTransform.anchoredPosition.x);
+        if (isMove_StartPos) {
             return;
         }
 
+        Vector2 pos = startPos.rectTransform.anchoredPosition;
+
+        float dir = Mathf.Abs(pos.x - endPos.rectTransform.anchoredPosition.x);
+
+        if (dir < 30f) {
+
+            t += dt;
+            pos.x = (t / SumTime) * negativewidth;
+            dir = Mathf.Abs(pos.x - endPos.rectTransform.anchoredPosition.x);
+
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                isMove_StartPos = true;
+                startPos.rectTransform.anchoredPosition = new Vector2(0, 0);
+                level++;
+
+                return;
+            } else {
+                isMove_StartPos = false;
+                startPos.rectTransform.anchoredPosition = new Vector2(0, 0);
+
+            }
+
+
+        }
+
+
         t += dt;
-        
         pos.x = (t / SumTime) * negativewidth;
-
-        Debug.Log("t" + t + "t / SumTime: " + t / SumTime);
-
-
-        // startPos.transform.localPosition = pos;
         startPos.rectTransform.anchoredPosition = pos;
 
 

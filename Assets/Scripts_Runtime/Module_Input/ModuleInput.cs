@@ -33,11 +33,10 @@ public class ModuleInput {
             UIApp.Panel_ArrowElementUpdate(ctx.uiContext, ctx.gameEntity.arrowCount);
         } else if (Input.GetKeyDown(KeyCode.Space)) {
             UIApp.Panel_Arrow_Close(ctx.uiContext);
-            ctx.gameEntity.arrowCount += 1;
 
-            UIApp.Panel_Arrow_Open(ctx.uiContext);
-            UIApp.Panel_ArrowElementAdd(ctx.uiContext, ctx.gameEntity.arrowCount);
-            UIApp.Panel_ArrowElementUpdate(ctx.uiContext, ctx.gameEntity.arrowCount);
+            // UIApp.Panel_Arrow_Open(ctx.uiContext);
+            // UIApp.Panel_ArrowElementAdd(ctx.uiContext, ctx.gameEntity.arrowCount);
+            // UIApp.Panel_ArrowElementUpdate(ctx.uiContext, ctx.gameEntity.arrowCount);
         }
 
     }

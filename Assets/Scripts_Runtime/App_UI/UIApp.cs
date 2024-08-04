@@ -67,7 +67,6 @@ public static class UIApp {
         }
 
         for (int i = 0; i < ctx.arrowElementArray.Count; i++) {
-            Debug.Log(ctx.arrowElementArray[i]);
         }
 
 
@@ -87,7 +86,6 @@ public static class UIApp {
             Debug.Log(index);
 
             if (ele == null) {
-                Debug.LogError("ele is null");
                 return;
             }
 
@@ -96,16 +94,38 @@ public static class UIApp {
             ctx.moduleInput.index++;
         } else {
 
+
             UIApp.Panel_Arrow_Close(ctx);
 
             UIApp.Panel_Arrow_Open(ctx);
             UIApp.Panel_ArrowElementAdd(ctx, count);
 
             UIApp.Panel_Silde_SetText_Update(ctx, count);
+
+
         }
 
     }
 
+
+    public static void Panel_GameEnterNext(UIContext ctx, int count) {
+
+        Panel_Silde panel = ctx.panelSilde;
+
+        if (panel.isMove_StartPos == false) {
+            return;
+        }
+
+
+        UIApp.Panel_Arrow_Close(ctx);
+
+        UIApp.Panel_Arrow_Open(ctx);
+        UIApp.Panel_ArrowElementAdd(ctx, count);
+
+        UIApp.Panel_Silde_SetText_Update(ctx, count);
+
+        panel.isMove_StartPos = false;
+    }
 
     public static void Panel_Silde_Open(UIContext ctx, int level) {
         Panel_Silde panel = ctx.panelSilde;
@@ -138,6 +158,6 @@ public static class UIApp {
         if (panel == null) {
             return;
         }
-        panel.Move_StartPos(dt, ref ctx.gameEntity.t, ctx.gameEntity.SumTime);
+        panel.Move_StartPos(dt, ref ctx.gameEntity.t, ctx.gameEntity.SumTime, ref ctx.gameEntity.arrowCount);
     }
 }

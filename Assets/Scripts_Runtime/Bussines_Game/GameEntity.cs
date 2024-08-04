@@ -15,6 +15,6 @@ public class GameEntity {
         restFixTime = 0;
         arrowCount = 5;
         t = 0;
-        SumTime = 2;
+        SumTime = 5;
     }
 }
